@@ -1,0 +1,8 @@
+php7.0:
+    image: php7fan:v1
+    restart: always
+    ports:
+     - 127.0.0.1:9000:9000
+    volumes:
+     - ./my_php.ini:/etc/php7/conf.d/00_my.ini
+     - /www:/www:ro
