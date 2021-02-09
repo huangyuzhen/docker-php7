@@ -12,4 +12,13 @@ RUN apt-get update && apt-get install -y \
   && apt-get install -y imagemagick --no-install-recommends \
   && apt-get install -y python3 python3-pip \
   && rm -rf /var/lib/apt/lists/* \
-  && pip3 install argparse Pillow \
+  && pip3 install argparse Pillow
+RUN mkdir /software/ ; \
+    cd /software ; \
+    curl -L -o Image-ExifTool-12.12.tar.gz http://10.221.131.232:8000/static/Image-ExifTool-12.12.tar.gz ; \
+    tar zxf Image-ExifTool-12.12.tar.gz ; \
+    cd /software/Image-ExifTool-12.12 ; \
+    perl Makefile.PL ; \
+    make install ; \
+    ln -sf /usr/local/bin/exiftool /bin/exiftool ; \
+    rm -rf /software/Image-ExifTool*
