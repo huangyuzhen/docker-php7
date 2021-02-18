@@ -1,8 +1,10 @@
 php7.0:
-    image: php7fan:v1
+    image: php7fan:v4
     restart: always
     ports:
      - 127.0.0.1:9000:9000
     volumes:
      - ./my_php.ini:/etc/php7/conf.d/00_my.ini
      - /www:/www:ro
+     - ./cron:/root/cron
+    command: /bin/sh -c "/usr/sbin/cron && crontab /root/cron/php.cron && php-fpm"
