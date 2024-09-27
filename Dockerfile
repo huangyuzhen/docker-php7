@@ -21,10 +21,10 @@ RUN python3 -m venv /env/py3 \
 
 RUN rm -rf /var/lib/apt/lists/*
 
-COPY Image-ExifTool-12.17.tar.gz /software/
+COPY Image-ExifTool-12.97.tar.gz /software/
 RUN cd /software ; \
-    tar zxf Image-ExifTool-12.17.tar.gz ; \
-    cd /software/Image-ExifTool-12.17 ; \
+    tar zxf Image-ExifTool-12.97.tar.gz ; \
+    cd /software/Image-ExifTool-12.97 ; \
     perl Makefile.PL ; \
     make install ; \
     ln -sf /usr/local/bin/exiftool /bin/exiftool ; \
